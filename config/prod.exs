@@ -13,7 +13,7 @@ config :task_tracker, TaskTrackerWeb.Endpoint,
   server: true,
   root: ".",
   version: Application.spec(:phoenix_distillery, :vsn),
-  http: [:inet6, port: System.get_env("PORT") || 4000],
+  http: [:inet6, port: {:system, "PORT"}],
   url: [host: "tasks1.hurtadodelacuesta.pw", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
@@ -100,6 +100,6 @@ config :task_tracker, TaskTrackerWeb.Endpoint,
 # Configure your database
 config :task_tracker, TaskTracker.Repo,
   username: "task_tracker",
-  password: "get_secret.("db_pass"),
+  password: get_secret.("db_pass"),
   database: "task_tracker_prod",
   pool_size: 15

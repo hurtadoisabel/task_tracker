@@ -1,0 +1,22 @@
+## Name of the node
+-name task_tracker@127.0.0.1
+
+## Cookie for distributed erlang
+-setcookie 6F2654625D1E8E9398D03C8FEFA1C9EC93B39BEA224470D391DAF93E9F909950
+
+## Heartbeat management; auto-restarts VM if it dies or becomes unresponsive
+## (Disabled by default..use with caution!)
+##-heart
+
+## Enable kernel poll and a few async threads
+##+K true
+##+A 5
+
+## Increase number of concurrent ports/sockets
+##-env ERL_MAX_PORTS 4096
+
+## Tweak GC to run more often
+##-env ERL_FULLSWEEP_AFTER 10
+
+# Enable SMP automatically based on availability
+-smp auto
