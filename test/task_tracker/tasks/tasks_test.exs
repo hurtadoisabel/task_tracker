@@ -6,9 +6,9 @@ defmodule TaskTracker.TasksTest do
   describe "tasks" do
     alias TaskTracker.Tasks.Task
 
-    @valid_attrs %{description: "some description", title: "some title"}
-    @update_attrs %{description: "some updated description", title: "some updated title"}
-    @invalid_attrs %{description: nil, title: nil}
+    @valid_attrs %{description: "some description", title: "some title", user_assigned: "some user", completed: false}
+    @update_attrs %{description: "some updated description", title: "some updated title", user_assigned: "some updated user", completed: false}
+    @invalid_attrs %{description: nil, title: nil, user_assigned: nil, completed: nil}
 
     def task_fixture(attrs \\ %{}) do
       {:ok, task} =
@@ -33,6 +33,8 @@ defmodule TaskTracker.TasksTest do
       assert {:ok, %Task{} = task} = Tasks.create_task(@valid_attrs)
       assert task.description == "some description"
       assert task.title == "some title"
+      assert task.user_assigned == "some user"
+      assert task.completed == false
     end
 
     test "create_task/1 with invalid data returns error changeset" do
@@ -46,6 +48,8 @@ defmodule TaskTracker.TasksTest do
       
       assert task.description == "some updated description"
       assert task.title == "some updated title"
+      assert task.user_assigned == "some updated user"
+      assert task.completed == false
     end
 
     test "update_task/2 with invalid data returns error changeset" do
