@@ -35,8 +35,21 @@
           <%# if the button is pressed, show this and completed = true%>
         <input checked = "checked" type= "checkbox" id="checked" value="true" class="form-check-input ">
       </td>
-      
       <%end%>
+
+      <%= if @current_user.email !== task.user_assigned do %>
+
+        <td>     </td>
+        <td> <%= if(task.completed) do %> yes! <%end%>
+        <%= if(!task.completed) do %> not yet <%end%>
+        </td>
+
+
+
+
+      <%end%>
+
+
       
       <td>
         <%= link "Show", to: Routes.task_path(@conn, :show, task), class: "btn btn-secondary" %>
