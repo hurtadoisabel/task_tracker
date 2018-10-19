@@ -18,3 +18,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+A user can create tasks and assign them to other users. Only a user that is assigned to a task, can mark it as completed and select the time it took him to do it. 
+
