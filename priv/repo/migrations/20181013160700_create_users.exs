@@ -4,7 +4,7 @@ defmodule TaskTracker.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :email, :string, null: false
-      
+
       timestamps()
     end
 
