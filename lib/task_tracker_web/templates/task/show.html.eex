@@ -20,6 +20,18 @@
     <strong>Completed:</strong>
     <%= @task.completed %>
   </li>
+
+  <li>
+    <strong>Time Spent:</strong>
+    <p> time spent </p>>
+    <span id="time-spent">
+    <%# time_spent(@task) %>
+    </span>
+    
+  </li>
+
+
+  </li>
 </ul>
 
 <span><%= link("Edit", to: Routes.task_path(@conn, :edit, @task), class: "btn btn-default") %></span>

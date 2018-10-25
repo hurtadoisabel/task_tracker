@@ -10,16 +10,32 @@
     <%= text_input f, :title, class: "form-control" %>
     <%= error_tag f, :title %>
   </div>
+
   <div class = "form-group">
     <%= label f, :description %>
     <%= text_input f, :description, class: "form-control" %>
     <%= error_tag f, :description %>
   </div>
+  
   <div class = "form-group">
     <%= label f, :user_assigned %>
     <%= text_input f, :user_assigned, class: "form-control" %>
     <%= error_tag f, :user_assigned %>
   </div>
+
+
+  <%# <div class = "form-group">
+    <form>
+      <label>Start time</label>
+      <input type="time" id="start-time" class="form-control">
+
+      <label>Finish time</label>
+      <input type="time" id="finish-time" class="form-control">
+    </form>
+      
+  </div> &%>
+
+ 
   
     <div>
       <%= submit "Save", class: "btn btn-primary" %>

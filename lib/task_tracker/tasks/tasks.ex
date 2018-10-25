@@ -8,6 +8,7 @@ defmodule TaskTracker.Tasks do
 
   alias TaskTracker.Tasks.Task
 
+   
   @doc """
   Returns the list of tasks.
 
@@ -26,6 +27,7 @@ defmodule TaskTracker.Tasks do
 
   Raises `Ecto.NoResultsError` if the Task does not exist.
 
+  
   ## Examples
 
       iex> get_task!(123)
@@ -35,7 +37,13 @@ defmodule TaskTracker.Tasks do
       ** (Ecto.NoResultsError)
 
   """
-  def get_task!(id), do: Repo.get!(Task, id)
+
+  def get_task!(id) do
+    Repo.one! from t in Task,
+      where: t.id == ^id,
+      preload: :time_block
+  end
+  
 
   @doc """
   Creates a task.

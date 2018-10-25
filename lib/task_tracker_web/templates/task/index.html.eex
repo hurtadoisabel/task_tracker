@@ -16,41 +16,17 @@
       <td><%= task.title %></td>
       <td><%= task.description %></td>
       <td><%= task.user_assigned %></td>
-      <%= if @current_user.email == task.user_assigned do %>
-        <td>
-          <form class="row">
-            <input type="text" class="form-control col-sm-1">
-            <label>hours</label>
-            <select class="custom-select col-sm-3">
-              <option selected value="0">0</option>
-              <option value="15">15</option>
-              <option value="30">30</option>
-              <option value="45">45</option>
-            </select>
-            <label>minutes</label>
-            <button type="submit" class="btn btn-success">Done</button>
-          </form>
-        </td>
-      <td>
-          <%# if the button is pressed, show this and completed = true%>
-        <input checked = "checked" type= "checkbox" id="checked" value="true" class="form-check-input ">
-      </td>
-      <%end%>
-
+      <td> TIME </td> <%#tengo que añadir el tiempo calculado%>
+      
       <%= if @current_user.email !== task.user_assigned do %>
 
         <td>     </td>
         <td> <%= if(task.completed) do %> yes! <%end%>
         <%= if(!task.completed) do %> not yet <%end%>
         </td>
-
-
-
-
       <%end%>
 
 
-      
       <td>
         <%= link "Show", to: Routes.task_path(@conn, :show, task), class: "btn btn-secondary" %>
         <%= link "Edit", to: Routes.task_path(@conn, :edit, task), class: "btn btn-info" %>

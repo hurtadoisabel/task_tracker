@@ -9,6 +9,8 @@ defmodule TaskTracker.Tasks.Task do
     field :user_assigned, :string
     field :completed, :boolean
 
+    has_many :time_block, TaskTracker.Time_blocks.Time_block
+
     timestamps()
   end
 
@@ -18,4 +20,6 @@ defmodule TaskTracker.Tasks.Task do
     |> cast(attrs, [:title, :description, :user_assigned, :completed])
     |> validate_required([:title, :description, :user_assigned])
   end
+
+  
 end
